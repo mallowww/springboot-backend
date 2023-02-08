@@ -13,11 +13,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/test")
 public class TestApi {
-    // METHOD 1 - field injection
-//    @Autowired
-//    private TestBusiness business;
-
-    // METHOD 2 - constructor injection
     private final TestBusiness business;
 
     public TestApi(TestBusiness business) {
