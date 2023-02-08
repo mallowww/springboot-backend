@@ -1,10 +1,9 @@
 package com.springb.learning.backend.api;
 
+import com.springb.learning.backend.model.MRegisterRequest;
 import com.springb.learning.backend.model.TestResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/test")
 public class TestApi {
@@ -16,17 +15,9 @@ public class TestApi {
         return  response;
     }
 
-    @GetMapping
-    @RequestMapping("/2")
-    public TestResponse test2() {
-        TestResponse response = new TestResponse();
-        response.setName("Olly 2");
-        response.setFood("Pizza 2");
-        return  response;
-    }
-
     @PostMapping
-    private String register() {
-        return "";
+    @RequestMapping("/register")
+    private String register(@RequestBody MRegisterRequest request) {
+        return "Received " + request;
     }
 }
